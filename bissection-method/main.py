@@ -5,7 +5,7 @@ n = 0
 def calculateC(a, b):
     return (a + b)/2
 
-
+#test
 def inputData():
     global n
     a = float(input("Digite o valor de a: "))

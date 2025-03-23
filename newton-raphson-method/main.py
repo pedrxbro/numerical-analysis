@@ -5,7 +5,7 @@ def inputData():
 
     for i in range (n):
         quoficient.append(float(input(f"Digite o quoficiente do termo {i + 1}: ")))
-        power.append(n - 1 - i)
+        power.append(int(input(f"Digite o expoente do termo {i + 1}: ")))
         
     toler = float(input("Digite o erro percentual: "))
     iterMax = int(input("Digite o número máximo de iterações: "))

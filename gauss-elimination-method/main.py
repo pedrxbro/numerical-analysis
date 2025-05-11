@@ -1,3 +1,4 @@
+import numpy as np  
 def gaussEliminationMethod(A, b):
     n = len(A)
     
@@ -8,6 +9,7 @@ def gaussEliminationMethod(A, b):
             for k in range(i, n):
                 A[j][k] = A[j][k] - m * A[i][k]
             b[j] = b[j] - m * b[i]
+
 
     x = [0 for _ in range (n)]
     for i in range (n - 1, -1, -1):
@@ -24,5 +26,13 @@ if __name__ == "__main__":
     ]
     b = [7, -8, 6]
 
-    solution = gaussEliminationMethod(A, b)
+    solution = gaussEliminationMethod([row[:] for row in A], b[:])  # cópias para não alterar A e b originais
     print("Solução:", solution)
+
+    # Cálculo do resíduo
+    A_np = np.array(A)
+    b_np = np.array(b)
+    x_np = np.array(solution)
+
+    residuo = b_np - A_np @ x_np
+    print("Resíduo:", residuo)
